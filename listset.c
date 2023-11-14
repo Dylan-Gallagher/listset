@@ -8,7 +8,7 @@
 
 // create a new, empty linked list set
 struct listset * listset_new() {
-    struct listet * my_listset = (struct listset *) malloc(sizeof(struct listset *));
+    struct listset * my_listset = (struct listset *) malloc(sizeof(struct listset *));
     my_listset->head = NULL;
     return my_listset;
 }
@@ -31,7 +31,7 @@ int listset_lookup(struct listset * this, char * item) {
 // be added to the start of the list
 void listset_add(struct listset * this, char * item) {
     // check if it's already in set
-    if (list_lookup(this, item) == 1) { return; }
+    if (listset_lookup(this, item) == 1) { return; }
 
     // make new node
     struct listnode * new_node = (struct listnode *) malloc(sizeof(struct listnode *));
@@ -42,6 +42,7 @@ void listset_add(struct listset * this, char * item) {
     
     struct listnode * temp = this->head;
     this->head = new_node;
+    new_node->next = malloc(sizeof(struct listnode));
     new_node->next = temp;
 }
 
@@ -61,7 +62,7 @@ void listset_remove(struct listset * this, char * item) {
                 p_prev->next = p->next;
             }
 
-            free(p);
+//            free(p);
 
         }
         p_prev = p;
@@ -89,7 +90,7 @@ void listset_print(struct listset * this) {
   struct listnode * p;
 
   for ( p = this->head; p != NULL; p = p->next ) {
-    printf("%s, ", p->str);
+    printf("%s ", p->str);
   }
   printf("\n");
 }

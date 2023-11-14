@@ -25,6 +25,7 @@ struct listset {
 
 Your list set should support the following operations:
 
+`
 // create a new, empty linked list set
 struct listset * listset_new();
 
@@ -54,10 +55,10 @@ int listset_cardinality(struct listset * this);
 
 // print the elements of the list set
 void listset_print(struct listset * this);
+`
 
 The zip file for this lab contains a small C program that tests your abstract data type. The program takes command line parameters as input.
-The command line parameters are in pairs, with a command followed by a string. Where a "+" appears as a command line parameter, the string in the next command line parameter should be added to your 
-list set. Where a "-" appears, the following string should be removed from your list set. Finally, where a "="
+The command line parameters are in pairs, with a command followed by a string. Where a "+" appears as a command line parameter, the string in the next command line parameter should be added to your list set. Where a "-" appears, the following string should be removed from your list set. Finally, where a "="
 appears, your program should write out the full contents of your listset.
 
 Thus, at the command line you might write:
