@@ -16,7 +16,13 @@ struct listset * listset_new() {
 /* check to see if an item is in the set
    returns 1 if in the set, 0 if not */
 int listset_lookup(struct listset * this, char * item) {
-    
+    struct listnode * p;
+    for ( p = this->head; p != NULL; p = p->next ) {
+        if (if p->str != NULL && strcmp(item, p->str) == 0) {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 // add an item, with number 'item' to the set
