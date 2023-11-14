@@ -47,24 +47,41 @@ void listset_add(struct listset * this, char * item) {
 
 // remove an item with number 'item' from the set
 void listset_remove(struct listset * this, char * item) {
+    struct listnode * p_prev;
+    struct listnode * p;
+    for ( p = this->head; p != NULL; p = p->next ) {
+        if (p->str != NULL && strcmp(p->str, item) == 0) {
+            // remove node
 
+            // if it's the head node
+            if (this->head == p) {
+                this->head == p->next;
+            }
+            else {
+                p_prev->next = p->next;
+            }
+
+            free(p);
+
+        }
+        p_prev = p;
+    }
 }
   
 // place the union of src1 and src2 into dest
 void listset_union(struct listset * dest, struct listset * src1,
 		   struct listset * src2) {
-
 }
 
 // place the intersection of src1 and src2 into dest
 void listset_intersect(struct listset * dest, struct listset * src1,
 		       struct listset * src2) {
-
 }
 
 // return the number of items in the listset
 int listset_cardinality(struct listset * this) {
-
+    int dummy_var = 2;
+    return dummy_var;
 }
 
 // print the elements of the list set
