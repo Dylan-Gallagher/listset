@@ -8,13 +8,15 @@
 
 // create a new, empty linked list set
 struct listset * listset_new() {
-
+    struct listet * my_listset = (struct listset *) malloc(sizeof(struct listset *));
+    my_listset->head = NULL;
+    return my_listset;
 }
 
 /* check to see if an item is in the set
    returns 1 if in the set, 0 if not */
 int listset_lookup(struct listset * this, char * item) {
-
+    
 }
 
 // add an item, with number 'item' to the set
@@ -22,6 +24,10 @@ int listset_lookup(struct listset * this, char * item) {
 // New items that are not already in the set should
 // be added to the start of the list
 void listset_add(struct listset * this, char * item) {
+    // check if it's already in set
+    if (list_lookup(this, item) == 1) { return; }
+
+    
 
 }
 
