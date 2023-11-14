@@ -17,8 +17,8 @@ struct listset * listset_new() {
    returns 1 if in the set, 0 if not */
 int listset_lookup(struct listset * this, char * item) {
     struct listnode * p;
-    for ( p = this->head; p != NULL; p = p->next ) {
-        if (if p->str != NULL && strcmp(item, p->str) == 0) {
+    for (p = this->head; p != NULL ; p = p->next) {
+        if (strcmp(item, p-> str) == 0) {
             return 1;
         }
     }
@@ -33,8 +33,16 @@ void listset_add(struct listset * this, char * item) {
     // check if it's already in set
     if (list_lookup(this, item) == 1) { return; }
 
-    
+    // make new node
+    struct listnode * new_node = (struct listnode *) malloc(sizeof(struct listnode *));
 
+    // copy string over
+//    new_node->str = (char *) malloc(sizeof(char *));
+    new_node->str = item;
+    
+    struct listnode * temp = this->head;
+    this->head = new_node;
+    new_node->next = temp;
 }
 
 // remove an item with number 'item' from the set
